@@ -19,6 +19,31 @@ Result is :{{result}}
 <div>
   <ul>
     <li *ngFor="let n of arr">{{n}}</li> 
-    <li>5</li>
   </ul>
+  <br /><br />
+  <button (click)="even()">Show Even</button>
+  <button (click)="odd()">Show Odd</button>
+  <button (click)="reset()">Reset</button>
+  
+</div>
+<hr>
+<button (click) ="toggleAddress()">{{lbladdress}}</button> <br />
+<div class = "address" *ngIf="showAddress">
+  <p>Address</p>
+  <span>101 Kingston Avenue, Thames, LongIsland</span>
+</div>
+
+<hr>
+<div class ="employee_box" *ngFor="let e of employees">
+
+  <h2> {{e.name}} </h2>
+  Employee ID: {{e.id}}<br />
+  City: {{e.city}} <br />
+  Department:{{e.department}} <br />
+  salary: ${{e.salary}}<br />
+
+
+
+
+
 </div>
