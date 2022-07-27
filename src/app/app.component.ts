@@ -23,7 +23,7 @@ export class AppComponent implements OnInit{
 
   constructor(private employeeService : EmployeeService){}
 
-  ngOnInit(): void {
+  ngOnInit(): void { //to initialize the objects
     this.x = 10;
     this.y=5;
     this.result=0;
