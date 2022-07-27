@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { employeeData } from './data';
 import { Employee } from './model/employee.model';
+import { EmployeeService } from './service/employee.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit{
 
  
 
-  constrctor(){}
+  constructor(private employeeService : EmployeeService){}
 
   ngOnInit(): void {
     this.x = 10;
@@ -81,6 +82,11 @@ export class AppComponent implements OnInit{
     else
       this.lbladdress="Show Address";
   
+  }
+
+  sortSalary(flag:number):void{
+    this.employees = this.employeeService.sortSalary(this.employees,flag)
+
   }
 
 
