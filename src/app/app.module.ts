@@ -9,7 +9,7 @@ import { AddressComponent } from './components/address/address.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { EmployeeAddComponent } from './components/employee-add/employee-add.component';
 import { EmployeeAddReactiveComponent } from './components/employee-add-reactive/employee-add-reactive.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
