@@ -1,1 +1,33 @@
-<p>employee-add works!</p>
+<h1>Employee Registeration : Template based techniques</h1>
+
+
+<form (submit)="onFormSubmit(employeeForm)" #employeeForm="ngForm">
+
+    <label>Enter Employee Name: </label>
+    <input type="text" name="name" ngModel #name="ngModel" required pattern="[a-zA-Z ]+">
+    <span *ngIf="name.invalid && name.touched">
+        <span *ngIf="name.errors['required']"> Name is required</span>
+        <span *ngIf="name.errors['pattern']"> Name must follow pattern: [a-zA-Z ]+</span>
+    </span>
+    <br /><br />
+    <label>Enter Employee City: </label>
+    <input type="text" name="city" ngModel #city="ngModel" required pattern="[a-zA-Z ]+">
+    <span *ngIf="name.invalid && name.touched">
+        <span *ngIf="name.errors['required']"> Name is required</span>
+        <span *ngIf="name.errors['pattern']"> Name must follow pattern: [a-zA-Z ]+</span>
+    </span>
+    <br /><br />
+    <label>Enter Employee Salary: </label>
+    <input type="text" name="salary" ngModel #salary="ngModel"
+    required pattern="[0-9] + " minlength='3' maxlength='10'>
+    <span></span>
+    <br /><br />
+    <label>Enter Employee Department: </label>
+    <input type="text" name="department" ngModel #department="ngModel">
+    <br /><br />
+    <input type="submit" value="Add Employee" [disabled]="!employeeForm.valid">
+
+
+
+
+</form>

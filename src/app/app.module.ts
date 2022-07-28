@@ -9,6 +9,7 @@ import { AddressComponent } from './components/address/address.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { EmployeeAddComponent } from './components/employee-add/employee-add.component';
 import { EmployeeAddReactiveComponent } from './components/employee-add-reactive/employee-add-reactive.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EmployeeAddReactiveComponent } from './components/employee-add-reactive
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
