@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { employeeData } from './data';
+import { employeeData } from './data/data';
 import { Employee } from './model/employee.model';
 import { EmployeeService } from './service/employee.service';
 
@@ -93,3 +93,9 @@ export class AppComponent implements OnInit{
 
 
 }
+
+/* Dividing the page into components
+1. make a components folder
+2. put all the components in that folder etc, calc.somponent.ts, array.component
+    address.component, employee-list, employee-add, employee-add-rective
+*/
