@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Employee } from 'src/app/model/employee.model';
 import { employeeData } from 'src/app/data/data';
 import { EmployeeService } from 'src/app/service/employee.service';
@@ -9,6 +9,8 @@ import { EmployeeService } from 'src/app/service/employee.service';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
+
+  @Input("data")
 
   employees:Employee[];
 
