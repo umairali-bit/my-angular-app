@@ -13,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostComponent } from './components/post/post.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import {HttpClientModule} from'@angular/common/http'
+import {HttpClientModule} from'@angular/common/http';
+import { ProductComponent } from './components/product/product.component'
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {HttpClientModule} from'@angular/common/http'
     PostComponent,
     CommentsComponent,
     DashboardComponent,
+    ProductComponent,
   
   ],
   imports: [

@@ -16,6 +16,7 @@ export class PostComponent implements OnInit {
     this.postService.fetchPosts().subscribe(data=>{
       //.subscribe is coming from Observables from post.service
       this.posts = data;
+      // console.log(this.posts);
     });
   }
 
