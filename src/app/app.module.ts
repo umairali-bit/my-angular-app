@@ -10,7 +10,10 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeeAddComponent } from './components/employee-add/employee-add.component';
 import { EmployeeAddReactiveComponent } from './components/employee-add-reactive/employee-add-reactive.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { PostComponent } from './components/post/post.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {HttpClientModule} from'@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -21,13 +24,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EmployeeListComponent,
     EmployeeAddComponent,
     EmployeeAddReactiveComponent,
+    PostComponent,
+    CommentsComponent,
+    DashboardComponent,
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
