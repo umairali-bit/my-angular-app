@@ -15,7 +15,11 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {HttpClientModule} from'@angular/common/http';
 import { ProductComponent } from './components/product/product.component';
-import { CategoryComponent } from './components/category/category.component'
+import { CategoryComponent } from './components/category/category.component';
+import { EmployeeComponent } from './components/employee/employee/employee.component';
+import { EmployeeStatComponent } from './components/employee/employee-stat/employee-stat.component'
+import { EmployeeListComponentRxjs } from './components/employee/employee-list/employee-list.component';
+import { EmployeeAddReactiveComponentRxjs } from './components/employee/employee-add/employee-add.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,11 @@ import { CategoryComponent } from './components/category/category.component'
     DashboardComponent,
     ProductComponent,
     CategoryComponent,
+    EmployeeComponent,
+    EmployeeStatComponent,
+    EmployeeListComponentRxjs,
+    EmployeeAddReactiveComponentRxjs
+
   
   ],
   imports: [
