@@ -1,0 +1,21 @@
+.employee-section{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+    padding: 10px;
+    margin: 10px;
+
+}
+
+.employee-list{
+
+    width: 50%;
+    float: left;
+
+
+}
+
+.employee-stat-add{
+
+    width: 50%;
+    float: left;
+
+}
