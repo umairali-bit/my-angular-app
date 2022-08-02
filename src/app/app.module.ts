@@ -20,6 +20,7 @@ import { EmployeeComponent } from './components/employee/employee/employee.compo
 import { EmployeeStatComponent } from './components/employee/employee-stat/employee-stat.component'
 import { EmployeeListComponentRxjs } from './components/employee/employee-list/employee-list.component';
 import { EmployeeAddReactiveComponentRxjs } from './components/employee/employee-add/employee-add.component';
+import { LoginComponent } from './auth/component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EmployeeAddReactiveComponentRxjs } from './components/employee/employee
     EmployeeComponent,
     EmployeeStatComponent,
     EmployeeListComponentRxjs,
-    EmployeeAddReactiveComponentRxjs
+    EmployeeAddReactiveComponentRxjs,
+    LoginComponent
 
   
   ],
