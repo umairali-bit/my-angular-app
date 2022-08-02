@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { employeeData } from './data/data';
+import { employeeData } from '../app/data/data';
+import { AuthService } from './auth/service/auth.service';
 import { Employee } from './model/employee.model';
 import { EmployeeService } from './service/employee.service';
 
@@ -10,14 +11,20 @@ import { EmployeeService } from './service/employee.service';
 })
 export class AppComponent implements OnInit{
 
-
- 
-
-  constructor(private employeeService : EmployeeService){}
+  constructor(private employeeService: EmployeeService, private authService: AuthService) {}
   employees: Employee[];
+  username: string;
 
   ngOnInit(): void { //to initialize the objects
     this.employees = this.employeeService.fetchEmployees();
+    this.authService.username$.subscribe(data=>{
+      this.username = data;
+
+        //this.username = localStorage.getItem('username');
+        console.log(this.username);
+
+
+    })
 
   }
 
