@@ -1,25 +1,14 @@
-<h1>Sign Up</h1>
+<h1>Profile</h1>
+{{msg}}
 
-<form (submit)="onFormSubmit()" [formGroup]="signUpForm">
+<form (submit)="onFormSubmit()" [formGroup]="profileForm">
+    
     <label> Enter Name: </label>
     <input type="text" name="name" formControlName="name">
     <br /> <br />
 
     <label> Enter UserName: </label>
     <input type="text" name="username" formControlName="username">
-    <br /> <br />
-
-    <label>Enter Password </label>
-    <input type="password" name="password"
-          formControlName="password">
-    <br /><br />
-
-    <label> Select Role:: </label>
-    <select formControlName="role">
-        <option value="ADMIN">ADMIN</option>
-        <option value="USER">USER</option>
-
-    </select>
     <br /> <br />
 
 
@@ -31,4 +20,4 @@
     <input type="text" name="answer" formControlName="securityAnswer">
     <br /> <br />
 
-    <input type="submit" value="Sign-Up" [disabled]="!signUpForm.valid">
+    <input type="submit" value="Update Profile" [disabled]="!profileForm.valid">

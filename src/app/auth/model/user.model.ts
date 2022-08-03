@@ -5,3 +5,19 @@ export class User{
     name: string;
     password?: string;
   }
+
+  export class UserDto{
+    name: string;
+    encodedCredentials: string;
+    role: string;
+    securityQuestion: string;
+    securityAnswer: string;
+  }
+
+  export class UserEditDto{
+    id?: number;
+    name: string;
+    securityQuestion: string;
+    securityAnswer: string;
+    username?: string;
+  }

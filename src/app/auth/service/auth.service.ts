@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../model/user.model';
+import { User, UserDto, UserEditDto } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,16 @@ export class AuthService {
   username$ = new BehaviorSubject<string>('');
   message$ = new BehaviorSubject<string>('');
   loginApi: string;
+  signUpApi: string;
+  userApi: string;
+  profileEditApi: string;
 
   constructor(private http: HttpClient) {
     this.username='';
     this.loginApi = 'http://localhost:7558/login';
+    this.signUpApi = 'http://localhost:7558/user';
+    this.userApi = 'http://localhost:7558/user/username'; 
+    this.profileEditApi = 'http://localhost:7558/user/profile';
   }
 
   isLoggedIn(): boolean{
@@ -39,4 +45,32 @@ export class AuthService {
 
      return this.http.get<User>(this.loginApi, httpOptions);
   }
+
+  signUp(userDto: UserDto): Observable<any> {
+    return this.http.post(this.signUpApi, userDto);
+  }
+
+  getUserByUsername(credentials: string) : Observable<UserEditDto> {
+    let httpOptions={
+      headers : new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization' : 'basic ' + credentials
+      })
+    };
+    return this.http.get<UserEditDto>(this.userApi,httpOptions);
+  }
+
+  editProfile(userEditDto: UserEditDto) :Observable<UserEditDto>{
+    let httpOptions={
+      headers : new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization' : 'basic ' + localStorage.getItem('credentials')
+      })
+    };
+     return this.http.put<UserEditDto>(this.profileEditApi,userEditDto,httpOptions);
+  }
+
+
+
+
 }
