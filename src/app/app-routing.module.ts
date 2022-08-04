@@ -7,10 +7,12 @@ import { SignUpComponent } from './auth/component/sign-up/sign-up.component';
 import { AuthguardService } from './auth/service/authguard.service';
 import { CategoryComponent } from './components/category/category.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { CountryComponent } from './components/country/country.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeeComponent } from './components/employee/employee/employee.component';
 import { PostComponent } from './components/post/post.component';
 import { ProductComponent } from './components/product/product.component';
+import { VendorComponent } from './components/vendor/vendor.component';
 
 const routes: Routes = [
   
@@ -20,6 +22,8 @@ const routes: Routes = [
   {path: 'posts' , component: PostComponent},
   {path: 'products' , component: ProductComponent},
   {path: 'category' , component: CategoryComponent},
+  {path: 'vendor' , component: VendorComponent},
+  {path: 'cities' , component: CountryComponent},
   // {path: 'comments' , component: CommentsComponent}
   // : is used as parameter so id becomes a value
   {path: 'comments/:postId' , component: CommentsComponent},
