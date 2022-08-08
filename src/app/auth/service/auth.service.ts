@@ -1,13 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User, UserDto, UserEditDto } from '../model/user.model';
+import { environment } from 'src/environments/environment';
+import { User, UserDto, UserEditDto, UserSecurityDto } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
 
   username: string;
   username$ = new BehaviorSubject<string>('');
@@ -16,13 +16,17 @@ export class AuthService {
   signUpApi: string;
   userApi: string;
   profileEditApi: string;
+  userSecurityInfoApi: string;
+  securityAnswerValidationApi:string;
 
   constructor(private http: HttpClient) {
     this.username='';
-    this.loginApi = 'http://localhost:7558/login';
+    this.loginApi = environment.serverUrl +'/login';
     this.signUpApi = 'http://localhost:7558/user';
     this.userApi = 'http://localhost:7558/user/username'; 
     this.profileEditApi = 'http://localhost:7558/user/profile';
+    this.userSecurityInfoApi='http://localhost:7558/user/security/info/';
+    this.securityAnswerValidationApi=environment.serverUrl + '/validate-security-answer/'
   }
 
   isLoggedIn(): boolean{
@@ -68,6 +72,16 @@ export class AuthService {
       })
     };
      return this.http.put<UserEditDto>(this.profileEditApi,userEditDto,httpOptions);
+  }
+
+  getUserSecurityDetailsByUsername(username: string) :Observable<UserSecurityDto>{
+    return this.http.get<UserSecurityDto>(this.userSecurityInfoApi + username);
+ }
+
+  validateSecurityAnswer(username:string, answer:string): Observable<boolean> {
+    let encodedText=btoa(username + '--' +answer);
+
+    return this.http.get<boolean>(this.securityAnswerValidationApi + encodedText);
   }
 
 
