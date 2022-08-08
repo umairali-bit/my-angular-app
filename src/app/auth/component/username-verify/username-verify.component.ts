@@ -48,12 +48,16 @@ export class UsernameVerifyComponent implements OnInit {
       .subscribe({
         next:(data=>{
           if(data == true) {
+
+            if(data == true){
+              this.authService.user$.next(this.username);
             this.router.navigateByUrl('/password-reset-form')
           }
           else {
             this.authService.message$.next('Security Info could not be verified')
             this.router.navigateByUrl('/login');
           }
+        }
         }),
         error: (e)=>{
 

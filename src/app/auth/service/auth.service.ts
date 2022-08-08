@@ -11,6 +11,7 @@ export class AuthService {
 
   username: string;
   username$ = new BehaviorSubject<string>('');
+  user$ = new BehaviorSubject<string>('');
   message$ = new BehaviorSubject<string>('');
   loginApi: string;
   signUpApi: string;
@@ -18,6 +19,7 @@ export class AuthService {
   profileEditApi: string;
   userSecurityInfoApi: string;
   securityAnswerValidationApi:string;
+  passwordResetApi: string;
 
   constructor(private http: HttpClient) {
     this.username='';
@@ -26,7 +28,8 @@ export class AuthService {
     this.userApi = 'http://localhost:7558/user/username'; 
     this.profileEditApi = 'http://localhost:7558/user/profile';
     this.userSecurityInfoApi='http://localhost:7558/user/security/info/';
-    this.securityAnswerValidationApi=environment.serverUrl + '/validate-security-answer/'
+    this.securityAnswerValidationApi=environment.serverUrl + '/validate-security-answer/';
+    this.passwordResetApi=environment.serverUrl +'/user/reset-password/';
   }
 
   isLoggedIn(): boolean{
@@ -82,6 +85,11 @@ export class AuthService {
     let encodedText=btoa(username + '--' +answer);
 
     return this.http.get<boolean>(this.securityAnswerValidationApi + encodedText);
+  }
+
+  resetPassword(username: string, password: string):Observable<any> {
+    let encodedText=btoa(username + '%%' +password);
+    return this.http.put(this.passwordResetApi + encodedText,{});
   }
 
 
